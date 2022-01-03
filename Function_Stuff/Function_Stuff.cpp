@@ -26,15 +26,28 @@
 //        << num1 * num2;
 //    return EXIT_SUCCESS; // Same as returning zero
 //}
-int doubleNumber(int x) {
-	return x * 2;
-}
+//int doubleNumber(int x) {
+//	return x * 2;
+//}
+
+
+// Forward declaration for 'add' function in 'addition.cpp'
+int add(int, int);
 
 int main() {
-	int number{}; // To pass into function call parameter for 'x'
-	std::cout << "Please enter an integer value => ";
-	std::cin >> number;
-	std::cout << "The product of " << number << " times two is: "
-		<< doubleNumber(number);
+	int number1{}, number2{}; // Pass to function 'add' as expected params
+	std::cout << "Please enter a number => ";
+	std::cin >> number1;
+	std::cout << "\nAnd now one more number please => ";
+	std::cin >> number2;
+	std::cout << "\nThe sum of " << number1 << " and " << number2 << " is " <<
+		add(number1, number2);
 	return 0;
+
+//	int number{}; // To pass into function call parameter for 'x'
+//	std::cout << "Please enter an integer value => ";
+//	std::cin >> number;
+//	std::cout << "The product of " << number << " times two is: "
+//		<< doubleNumber(number);
+//	return 0;
 }
