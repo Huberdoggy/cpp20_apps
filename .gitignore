@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Other custom from Kyle -> VS templates and scratch projects
+/DoubleNumber
+/CPP20-Template
+
 # User-specific files
 *.rsuser
 *.suo
