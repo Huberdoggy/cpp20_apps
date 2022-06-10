@@ -47,7 +47,7 @@ int main(float _num1, float _num2)
 	int mod_res = 0;
 	char _operator{};
 	string response{};
-	bool goAgain = true, isNumeric = true;
+	bool goAgain = true;
 
 	cout << "*** WELCOME TO KYLE'S C++ CALCULATOR ***" << endl;
 	while (goAgain) {
