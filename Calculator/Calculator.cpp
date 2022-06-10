@@ -35,18 +35,24 @@ float divide(float _num1, float _num2) {
 	return _num2 > 0 ? result = _num1 / _num2 : 7; // Custom value to identify error
 }
 
+int modulus(float _num1, float _num2) {
+	int result = (int(_num1) % int(_num2)); // Attempt to cast - will drop decimal portion
+	return result;
+}
+
 
 int main(float _num1, float _num2)
 {
-	float num1{}, num2{}, add_res{}, sub_res{}, mult_res{}, div_res{};
+	float num1 = 0, num2 = 0, add_res{}, sub_res{}, mult_res{}, div_res{};
+	int mod_res = 0;
 	char _operator{};
 	string response{};
-	bool goAgain = true;
+	bool goAgain = true, isNumeric = true;
 
 	cout << "*** WELCOME TO KYLE'S C++ CALCULATOR ***" << endl;
 	while (goAgain) {
 		cout << "\n\nPlease enter the first number => "; cin >> num1;
-		cout << "\nChoose your mathematical operation (+, -, /, *) => "; cin >> _operator;
+		sizeof(num1) == 4 && cout << "\nChoose your mathematical operation (+, -, /, *, %) => "; cin >> _operator;
 		cout << "\nAnd now the second number please => "; cin >> num2;
 
 		switch (_operator)
@@ -73,7 +79,12 @@ int main(float _num1, float _num2)
 				cout << "\nERROR! You attempted to divide by zero. This is not allowed.";
 			}
 			break;
+		case '%':
+			mod_res = modulus(num1, num2);
+			printf("\nResult of the MODULATION is %d", mod_res);
+			break;
 		default:
+			cout << "Invalid operator. Please choose from the defined options in prompt.";
 			break;
 		}
 
@@ -85,8 +96,7 @@ int main(float _num1, float _num2)
 			cout << "Okay. Good-bye now!";
 			goAgain = false;
 		}
-	}
 
+	}
 	return 0;
 }
-
