@@ -22,7 +22,7 @@ double runMetric() {
 int main()
 {
 	double result{};
-	char choice{ 1 };
+	char choice{};
 
 	cout << "\t\t**** BMI CALCULATOR ****" << endl;
 	cout << "\n\nWould you like to use the imperial or metric system (i/m)? "; cin >> choice;
