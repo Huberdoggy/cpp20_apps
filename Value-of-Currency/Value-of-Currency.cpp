@@ -1,9 +1,24 @@
+/* Write a program that prompts the user to enter three integer values, and then outputs the values
+in numerical sequence separated by commas.So, if the user enters the values 10 4 6, the output
+should be 4, 6, 10. If two values are the same, they should just be ordered together.So, the
+input 4 5 4 should give 4, 4, 5 */
+
 #include <iostream>
 #include<string>
 #include<vector>
 #include<algorithm>
 #include<cmath>
 using namespace std;
+
+
+void orderNumericInput(int numArr[], int size) {
+	sort(numArr, numArr + size); // using sort function from the algorithms library
+	cout << "\nList after sorting is: ";
+	for (int i = 0; i < size; i++)
+	{
+		i < 2 ? printf("%d%s", numArr[i], ", ") : printf("%d", numArr[i]); // I like using format strings where possible. Last index won't trail comma
+	}
+}
 
 double getCoinValue(int length, double inputArr[]) {
 	double sum = 0;
@@ -18,6 +33,8 @@ double getCoinValue(int length, double inputArr[]) {
 int main()
 {
 	int pennies{}, nickels{}, dimes{}, quarters{}, halfDollars{}, dollars{};
+	int num1{}, num2{}, num3{};
+
 	cout << "How many pennies do you have? "; cin >> pennies;
 	cout << "How many nickels? "; cin >> nickels;
 	cout << "How many dimes? "; cin >> dimes;
@@ -33,6 +50,12 @@ int main()
 	cout << "\nYou have " << halfDollars << (halfDollars != 1 ? " half dollars" : " half dollar.");
 	cout << "\nYou have " << dollars << (dollars != 1 ? " dollars" : " dollar.");
 	cout << "\n\nThe value of all your currency is: " << "$" << getCoinValue(length, inputArr);
+
+	cout << "\n\nEnter 3 numbers to be sorted from smallest to largest, separated by spaces: "; cin >> num1 >> num2 >> num3;
+	int sortArr[3]{ num1, num2, num3 };
+	int s = (sizeof(sortArr) / sizeof(sortArr[0])); // pass this to function to track with the loop and use by 'sort' calculation
+	cout << '\n';
+	orderNumericInput(sortArr, s);
 	return 0;
 }
 
