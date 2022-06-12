@@ -18,7 +18,6 @@ double getCoinValue(int length, double inputArr[]) {
 int main()
 {
 	int pennies{}, nickels{}, dimes{}, quarters{}, halfDollars{}, dollars{};
-	double ptrArr[6];
 	cout << "How many pennies do you have? "; cin >> pennies;
 	cout << "How many nickels? "; cin >> nickels;
 	cout << "How many dimes? "; cin >> dimes;
