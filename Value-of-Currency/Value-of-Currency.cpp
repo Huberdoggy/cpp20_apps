@@ -1,8 +1,3 @@
-/* Write a program that prompts the user to enter three integer values, and then outputs the values
-in numerical sequence separated by commas.So, if the user enters the values 10 4 6, the output
-should be 4, 6, 10. If two values are the same, they should just be ordered together.So, the
-input 4 5 4 should give 4, 4, 5 */
-
 #include <iostream>
 #include<string>
 #include<vector>
@@ -41,7 +36,7 @@ int main()
 	cout << "How many quarters? "; cin >> quarters;
 	cout << "How many half dollars? "; cin >> halfDollars;
 	cout << "And finally, how many whole dollars? "; cin >> dollars;
-	double inputArr[6] = { pennies, nickels, dimes, quarters, halfDollars, dollars };
+	double inputArr[6] = { pennies, nickels, dimes, quarters, halfDollars, dollars }; // Not concerned with potential data loss here...need a double return
 	int length = (sizeof(inputArr) / sizeof(inputArr[0])); // for ease of use to track i loop in above function
 	cout << "\nYou have " << pennies << (pennies != 1 ? " pennies" : " penny.");
 	cout << "\nYou have " << nickels << (nickels != 1 ? " nickels" : " nickel.");
