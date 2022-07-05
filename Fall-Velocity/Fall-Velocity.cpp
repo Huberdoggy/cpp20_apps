@@ -14,36 +14,16 @@ At 2 seconds, the ball is at height: 80.4 meters
 At 3 seconds, the ball is at height: 55.9 meters
 At 4 seconds, the ball is at height: 21.6 meters
 At 5 seconds, the ball is on the ground.
-Note: Depending on the height of the tower, the ball may not reach the ground in 5 seconds -- that’s okay. We’ll improve this program once we’ve covered loops.
-Note: The ^ symbol isn’t an exponent in C++. Implement the formula using multiplication instead of exponentiation.
-Note: Remember to use double literals for doubles, eg. 2.0 rather than 2.
 */
 
 #include <quick_headers.h> // Can add to 'include path from solution > properties to use < > notations instead of relative path "../.." etc
 using namespace std;
 
-void calcVelocity(double m) {
-	int seconds = 0;
-	constexpr double gravity{ 9.8 };
-	// Loop from zero to five seconds, and calc the ball's height at each instance
-	while (seconds < 6)
-	{
-		if (seconds == 0) {
-			printf("\nAt %d seconds, the ball is at height: %.1f meters", seconds, m);
-		}
-
-		else {
-			const double d_fallen{ gravity * (seconds * seconds) / 2.0 };
-			const double height{ m - d_fallen }; // anything between 1 and 5 seconds - subtract d_fallen from initial height
-			height >= 0 ? printf("\nAt %d seconds, the ball is at height: %.1f meters", seconds, height) : printf("\nAt %d seconds the ball is on the ground", seconds);
-		}
-		seconds++;
-	}
-
-}
+void calcVelocity(double m); // Forward dec for my external file func
 
 int main()
 {
+
 	double meters{};
 	cout << "Enter the height of the tower in meters: "; cin >> meters;
 	calcVelocity(meters);
