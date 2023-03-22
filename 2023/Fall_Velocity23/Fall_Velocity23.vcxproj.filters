@@ -15,11 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Fall-Velocity.cpp">
+    <ClCompile Include="Fall_Velocity23.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="calcVelocity.cpp">
+    <ClCompile Include="height_calc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="validate_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\height_calc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\common_includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

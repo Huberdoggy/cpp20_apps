@@ -1,4 +1,4 @@
-#include "../quick_headers.h"
+#include <iostream>
 using namespace std;
 
 double ctok(double c) // converts Celsius to Kelvin

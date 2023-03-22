@@ -11,9 +11,8 @@ User will provide a, b, c.
 Discriminant = b^2 - 4ac. If this is less than zero, the equation has 2 complex roots. Else, it has 2 real roots.
 
 */
-
-
-#include "../quick_headers.h"
+#include <iostream>
+#include <vector>
 using namespace std;
 
 vector<float> quadForm(float a, float b, float c) {

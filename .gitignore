@@ -4,8 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Other custom from Kyle -> VS templates and scratch projects
-/Experiments
-/CPP20-Template
+**/Experiments
+**/Tables
+.editorconfig
 
 # User-specific files
 *.rsuser
