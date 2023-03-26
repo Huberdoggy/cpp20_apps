@@ -20,10 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\input_regex.h">
+    <ClInclude Include="..\..\..\..\include\common_includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\common_includes.h">
+    <ClInclude Include="..\..\..\..\include\input_regex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

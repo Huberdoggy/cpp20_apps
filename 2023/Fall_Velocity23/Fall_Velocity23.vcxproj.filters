@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\height_calc.h">
+    <ClInclude Include="..\..\..\..\include\common_includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\common_includes.h">
+    <ClInclude Include="..\..\..\..\include\height_calc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
