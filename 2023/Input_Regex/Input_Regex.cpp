@@ -11,11 +11,9 @@
 
 */
 
-#include <input_regex.h>
 #include <common_includes.h>
 
 bool isValidEmail(const std::string_view s, const std::regex er);
-
 
 int main() {
     bool proceed{ true };

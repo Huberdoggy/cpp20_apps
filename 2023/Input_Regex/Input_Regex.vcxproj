@@ -133,10 +133,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Input_Regex.cpp" />
+    <ClCompile Include="validate_input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\include\common_includes.h" />
-    <ClInclude Include="..\..\..\..\include\input_regex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
