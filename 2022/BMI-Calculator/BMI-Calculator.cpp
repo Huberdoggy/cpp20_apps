@@ -1,11 +1,6 @@
-#include <iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-#include<cmath>
+#include <common_includes.h>
 
 using namespace std;
-
 
 double runImperial() {
 	double pounds{}, inches{};
