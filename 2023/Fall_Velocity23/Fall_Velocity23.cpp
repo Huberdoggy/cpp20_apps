@@ -22,8 +22,7 @@ At 4 seconds, the ball is at height: 21.6 meters
 At 5 seconds, the ball is on the ground.
 
 */
-#include <common_includes.h>
-#include <height_calc.h>
+#include "height_calc.h"
 
 int main() {
     std::regex m_reg{ "^[0-9]{2,3}$" }; // Validate user supplied param

@@ -23,7 +23,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\include\common_includes.h">
+    <ClInclude Include="..\..\..\..\external-deps\kyle-defines\common_includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="validate_input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

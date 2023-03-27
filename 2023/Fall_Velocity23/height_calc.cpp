@@ -1,5 +1,4 @@
-#include <common_includes.h>
-#include <height_calc.h>
+#include "height_calc.h"
 
 void printResult(int seconds, double nm) {
     if (seconds == 0) {

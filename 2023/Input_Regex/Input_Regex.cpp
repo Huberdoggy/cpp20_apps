@@ -11,9 +11,7 @@
 
 */
 
-#include <common_includes.h>
-
-bool isValidEmail(const std::string_view s, const std::regex er);
+#include "validate_input.h"
 
 int main() {
     bool proceed{ true };
