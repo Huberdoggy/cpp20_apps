@@ -7,6 +7,4 @@ int getSelection(const int choice, std::vector<int>& scores_v,
 void namesWithScore(const int score,
     std::vector<int>& scores_v, std::vector<std::string>& names_v);
 
-void scoreLookup();
-
 inline bool printResult(const std::vector<std::string>& found);

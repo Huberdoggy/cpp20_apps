@@ -7,9 +7,6 @@ Terminate input with NoName 0. Check that each name is unique and terminate with
 an error message if a name is entered twice.
 Write out all the (name,score) pairs, one per line.
 
-Modify the program from exercise 19 so that when you enter a name,
-the program will output the corresponding score or name not found.
-
 Modify the program from exercise 19 so that when you enter an integer,
 the program will output all the names with that score or score not found.
 
@@ -60,26 +57,13 @@ int getSelection(const int choice, std::vector<int>& scores_v,
         break;
     }
     case 2:
-        scoreLookup();
-        break;
+        exit(EXIT_SUCCESS);
     default:
         std::cerr << "Unknown choice " << choice;
         exit(EXIT_FAILURE);
     }
-    /*if (choice == 1) {
-        namesWithScore();
-    }
-    else {
-        scoreLookup();
-    }*/
 
     return 0;
-}
-
-
-void scoreLookup() {
-    //TODO
-    return;
 }
 
 
@@ -150,7 +134,7 @@ int main() {
                 std::cout << "All names are unique!\n\n";
                 std::cout << "Please choose from the following:\n\n";
                 std::cout << "\t1) Lookup all names that have SCORE\n";
-                std::cout << "\t2) Lookup a SCORE by a given NAME\n";
+                std::cout << "\t2) Quit\n";
                 std::cout << "=> ";
                 std::cin >> choice;
                 getSelection(choice, scores_v, names_v_copy); // Pass unsorted
