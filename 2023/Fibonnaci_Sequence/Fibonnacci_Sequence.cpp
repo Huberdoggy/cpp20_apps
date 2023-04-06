@@ -5,7 +5,7 @@ The next number of the series is the sum of the two previous ones.
 Find the largest Fibonacci number that fits in an int.
 */
 
-# include "common_includes.h"
+#include "common_includes.h"
 
 std::vector<unsigned> fibSeries(std::vector<unsigned>& v) {
     unsigned previous{ 0 };
