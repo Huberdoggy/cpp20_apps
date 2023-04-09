@@ -4,9 +4,14 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Other custom from Kyle -> VS templates and scratch projects
-**/Experiments
+
+# All scratch projects except the negated
+**/Experiments/* 
+!**/Experiments/Starting_Out_Book/
 **/Tables
-.editorconfig
+
+# Due to adjusting a few rules between Nix and Windows
+.editorconfig 
 
 #For my custom Nix binaries
 **/*.elf
