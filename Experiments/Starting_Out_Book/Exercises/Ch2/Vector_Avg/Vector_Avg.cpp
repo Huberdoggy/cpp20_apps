@@ -31,7 +31,7 @@ std::vector<double> calcSum(const std::vector<double>& num_v)
 int main()
 {
 
-    std::vector<double> num_v{28.0, 32.0, 37.0, 24.0, 33.0};
+    std::vector<double> num_v{ 28.0, 32.0, 37.0, 24.0, 33.0 };
 
     std::vector<double> results = calcSum(num_v);
     std::cout << "The sum of all values is: " << results[0] << '\n';
