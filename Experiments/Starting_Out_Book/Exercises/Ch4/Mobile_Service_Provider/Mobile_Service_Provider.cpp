@@ -84,7 +84,7 @@ void calcSavings(const char chosen_pkg, int mins_used,
     switch (chosen_pkg)
     {
     case 'a': case 'A':
-        if (mins_used > A_PROVIDED_MIN && mins_used <= B_PROVIDED_MIN)
+        if (mins_used > A_PROVIDED_MIN && mins_used <= B_PROVIDED_MIN && total > B_PKG_PRICE)
         {
             std::cout << std::fixed << std::setprecision(2) <<
                 "\nWith the B Plan you would save: " << '$' << b_diff << "\n";
@@ -95,7 +95,7 @@ void calcSavings(const char chosen_pkg, int mins_used,
         }
         break;
     case 'b': case 'B':
-        if (mins_used > B_PROVIDED_MIN)
+        if (mins_used > B_PROVIDED_MIN && total > C_PKG_PRICE)
         {
             std::cout << std::fixed << std::setprecision(2) <<
                 "\nWith the C Plan you would save: " << '$' << c_diff << "\n";
