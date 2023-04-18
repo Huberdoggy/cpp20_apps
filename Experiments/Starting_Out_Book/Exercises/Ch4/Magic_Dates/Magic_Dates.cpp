@@ -40,7 +40,8 @@ int main() {
 
     if (date_v.size() == ALLOWED_SIZE) {
         isMagic = determineMagic(date_v);
-        (date_v[2] <= 23) ? century = "20" : century; // My temp solution to make formatting nicer
+        (date_v[2] <= 23) ? century = "20" : century; 
+        // My temp solution to make formatting nicer
         std::cout << "Is year " << century << date_v[2] << " a magic year?\n" <<
             "VERDICT: " << std::boolalpha << isMagic << '\n';
         return 0;
