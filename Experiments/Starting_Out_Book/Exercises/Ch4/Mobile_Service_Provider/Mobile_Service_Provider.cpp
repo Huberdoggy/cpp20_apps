@@ -22,29 +22,6 @@ money Package A customers would save if they purchased packages B or C, and how
 much money Package B customers would save if they purchased Package C. If there
 would be no savings, no message should be printed.
 
-Mobile Service Provider, Part 3
-Months with 30 days have 720 hours, and months with 31 days have 744 hours.
-February, with 28 days, has 672 hours. You can calculate the number of minutes in
-a month by multiplying its number of hours by 60. Enhance the input validation of
-the Mobile Service Provider program by asking the user for the month (by name), and
-validating that the number of minutes entered is not more than the maximum for
-the entire month. Here is a table of the months, their days,
-and number of hours in each.
-
-Month Days Hours
-January 31 744
-February 28 672
-March 31 744
-April 30 720
-May 31 744
-June 30 720
-July 31 744
-August 31 744
-September 30 720
-October 31 744
-November 30 720
-December 31 744
-
 */
 
 #include "common_includes.h"
