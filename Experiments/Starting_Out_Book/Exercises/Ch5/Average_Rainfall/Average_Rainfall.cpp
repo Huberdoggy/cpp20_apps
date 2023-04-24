@@ -13,7 +13,7 @@ Input Validation: Do not accept a number less than 1 for the number of years.
 Do not accept negative numbers for the monthly rainfall.
 */
 
-# include "common_includes.h"
+#include "common_includes.h"
 
 // Global constants
 constexpr int MIN_NUM_YEARS{ 1 };
@@ -61,7 +61,7 @@ int main() {
     // Init var for years, total months, and total rainfall
     int years, total_months{ 0 };
     float total_rainfall{ 0.0f };
-    // Init vars to pass as string view for error msgs
+    // Init var to pass as string view for error msgs
     std::string years_err_msg = "ERROR - 'Years' requires an integer of " +
         std::to_string(MIN_NUM_YEARS) + " or greater";
     // Get user input for years
