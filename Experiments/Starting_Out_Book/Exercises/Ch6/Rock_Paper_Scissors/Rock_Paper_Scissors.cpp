@@ -47,8 +47,6 @@ inline bool announceVictor(bool& flag, const std::string_view victor);
 
 int main() {
     bool repeat{ 1 }; // Default flag to continue game for ties
-    // First, create a time stamp for seed, to ensure values differ each time
-    // prog runs
     while (repeat)
     {
         srand(static_cast<unsigned>(time(NULL)));
