@@ -28,7 +28,7 @@ std::string determineRowMonth(const int row);
 
 void displayResults(const std::vector<int>& v, const int months);
 
-// Global constant to map str value of month with its total int rainfall
+// Global to map str value of month with its total int rainfall
 std::pair <int, std::string> G_RAIN_PAIR(0, "foo"); // Init with garbage
 
 /*****************************************************************************/
