@@ -111,9 +111,6 @@ std::vector<int> calcStatistics(const int months, const int days,
             G_RAIN_PAIR.first = highestRain; // Int
             G_RAIN_PAIR.second = determineRowMonth(row);
         }
-        else {
-            G_RAIN_PAIR.first = monthRainy; // Store the int, but don't map a new string to pair
-        }
 
     } // End outer for
 
