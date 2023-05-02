@@ -18,6 +18,7 @@ performs a binary search instead of a linear search.
 
 
 inline bool testExistence(const std::ifstream& input_file);
+void genRandTicket(std::ofstream& output_file, const int combos);
 void buildVec(std::vector<std::string>& lot_nums, std::ifstream& input_file);
 int verifyUserInput(int& user_input, const std::regex num_digits,
     const std::string_view err_msg);
@@ -30,25 +31,30 @@ int main() {
     // Local constants
     constexpr int COMBINATIONS{ 10 };
     const std::regex NUM_DIGITS{ "^\\d{5}$" };
+    const std::string fileName{ "WinningNums.txt" };
     const std::string err_msg = "ERROR. Input must be an integer of exactly 5 digits";
 
     // Build vector from input file read
     std::vector<std::string> lotNums(COMBINATIONS);
-    std::ifstream input_file("WinningNums.txt");
+    std::ofstream output_file(fileName);
 
-    // Ensure source file is intact
+    genRandTicket(output_file, COMBINATIONS);
+    std::ifstream input_file(fileName);
+
+    // Ensure source file is intact after writing
     if (!(testExistence(input_file))) {
-        std::cout << "Error opening input file.\n";
+        std::cout << "Error accessing file.\n";
         return 1;
 
     }
-    buildVec(lotNums, input_file); // Pass refs
-    /* for (auto & i : lotNums)
-     {
-         std::cout << i << ' '; // Testing...
-     }*/
 
-     // Get user input for this week's winning num
+    buildVec(lotNums, input_file); // Pass refs
+    /*for (auto& i : lotNums)
+    {
+        std::cout << i << ' '; // Testing...
+    }*/
+
+    // Get user input for this week's winning num
     int chosenNum;
     std::cout << "\nEnter this week's winning number => ";
     verifyUserInput(chosenNum, NUM_DIGITS, err_msg);
@@ -65,6 +71,21 @@ inline bool testExistence(const std::ifstream& input_file) {
 }
 
 
+void genRandTicket(std::ofstream& output_file, const int combos) {
+    // Seed random & generate combos equal to constexpr num. Store in file
+    srand(static_cast<unsigned>(time(NULL)));
+    unsigned random;
+
+    for (int i = 0; i < combos; i++)
+    {
+        random = 13000 + (rand() % 81001); // From 12k to 94k
+        output_file << random << std::endl;
+    }
+
+    output_file.close();
+}
+
+
 void buildVec(std::vector<std::string>& lot_nums, std::ifstream& input_file) {
 
     lot_nums.clear();
@@ -72,11 +93,13 @@ void buildVec(std::vector<std::string>& lot_nums, std::ifstream& input_file) {
 
     while (!(input_file.eof()))
     {
-        std::getline(input_file, line, ' ');
+        std::getline(input_file, line);
+        // std::getline(input_file, line, ' '); // can use delimiter arg
         lot_nums.push_back(line);
     }
 
     std::sort(lot_nums.begin(), lot_nums.end()); // Modify ref input vec
+    input_file.close();
 }
 
 
