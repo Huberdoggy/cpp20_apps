@@ -34,7 +34,7 @@ int main() {
 
     // Build vector from input file read
     std::vector<std::string> lotNums(COMBINATIONS);
-    std::ifstream input_file("NumberPicks.txt");
+    std::ifstream input_file("WinningNums.txt");
 
     // Ensure source file is intact
     if (!(testExistence(input_file))) {
