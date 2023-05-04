@@ -8,10 +8,10 @@ winner this week.
 */
 
 #include "common_includes.h"
-
+#include <random> // For larger generator capability than RAND_MAX
 
 inline bool testExistence(const std::ifstream& input_file);
-void genRandTicket(std::ofstream& output_file, const int combos);
+void genRandTicket(std::ofstream& output_file, const int combos, std::mt19937& random_engine);
 void buildVec(std::vector<std::string>& lot_nums, std::ifstream& input_file);
 int verifyUserInput(int& user_input, const std::regex num_digits,
     const std::string_view err_msg);
@@ -24,15 +24,21 @@ int main() {
     // Local constants
     constexpr int COMBINATIONS{ 10 };
     const std::regex NUM_DIGITS{ "^\\d{5}$" };
-    const std::string fileName{ "WinningNums.txt" };
     const std::string err_msg = "ERROR. Input must be an integer of exactly 5 digits";
+
+    // Build stream file path from env
+    std::string filePath = std::getenv("STREAMFILE_DIR");
+    filePath += "\\WinningNums.txt";
 
     // Build vector from input file read
     std::vector<std::string> lotNums(COMBINATIONS);
-    std::ofstream output_file(fileName);
+    std::ofstream output_file(filePath);
 
-    genRandTicket(output_file, COMBINATIONS);
-    std::ifstream input_file(fileName);
+    std::random_device random_device; // Gen from hardware
+    std::mt19937 random_engine(random_device()); // Seed the generator once per program run
+   
+    genRandTicket(output_file, COMBINATIONS, random_engine);
+    std::ifstream input_file(filePath); // Use same file for input after closing in prev function call
 
     // Ensure source file is intact after writing
     if (!(testExistence(input_file))) {
@@ -42,10 +48,10 @@ int main() {
     }
 
     buildVec(lotNums, input_file); // Pass refs
-    /*for (auto& i : lotNums)
+    for (auto& i : lotNums)
     {
         std::cout << i << ' '; // Testing...
-    }*/
+    }
 
     // Get user input for this week's winning num
     int chosenNum;
@@ -64,14 +70,16 @@ inline bool testExistence(const std::ifstream& input_file) {
 }
 
 
-void genRandTicket(std::ofstream& output_file, const int combos) {
-    // Seed random & generate combos equal to constexpr num. Store in file
-    srand(static_cast<unsigned>(time(NULL)));
-    unsigned random;
+void genRandTicket(std::ofstream& output_file, const int combos,
+    std::mt19937& random_engine) {
 
+    unsigned random; // Will hold value I generate betwenn 13 and 99k each
+    // of the 10 iterations
+    std::uniform_int_distribution<unsigned> dist_13k_99k(13000, 99000);
+    // Using the uniform distribution for a more equal spread
     for (int i = 0; i < combos; i++)
     {
-        random = 13000 + (rand() % 81001); // From 12k to 94k
+        random = dist_13k_99k(random_engine);
         output_file << random << std::endl;
     }
 

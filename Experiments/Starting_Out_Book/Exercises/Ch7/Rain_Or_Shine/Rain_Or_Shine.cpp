@@ -13,6 +13,9 @@ largest number of rainy days. Data for the program can be found in the
 RainOrShine.txt file.
 */
 
+// NOTE - Added proj preprocessor line 
+// _CRT_SECURE_NO_WARNINGS to allow std::getenv
+
 #include "common_includes.h"
 
 // Function declarations
@@ -37,7 +40,10 @@ int main() {
     constexpr int NUM_MONTHS{ 3 };
     constexpr int NUM_DAYS{ 30 };
 
-    std::ifstream input_file("RainOrShine.txt"); // Init filestream object to read data into prog
+
+    std::string str_file = std::getenv("STREAMFILE_DIR");
+    str_file += "\\RainOrShine.txt";
+    std::ifstream input_file(str_file); // Init filestream object to read data into prog
     std::vector<std::string> v;
     if (!(testExistence(input_file))) {
         std::cout << "Error opening input file.\n";
