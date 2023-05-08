@@ -26,6 +26,8 @@ short validateInput(short& num, std::string_view err_msg);
 
 void sortScores(short* test_scores, std::string* student_names, const short amount);
 
+double displayAvgScore(const short* test_scores, const short amount);
+
 // Global constants
 constexpr short MIN_REQUIRED{ 0 };
 
@@ -65,6 +67,10 @@ int main() {
     {
         std::cout << *(test_scores + i) << std::setfill(' ') << std::setw(10);
     }
+
+    std::cout << std::fixed
+        << std::setprecision(2) << "\n\nRounded average of all supplied test scores: "
+        << displayAvgScore(test_scores, amount) << std::endl;
 
     // Destroy objects created with new to release memory
     // Assign them back to nullptrs
@@ -141,4 +147,17 @@ void sortScores(short* test_scores, std::string* student_names,
         // Before next full iteration...
     } // end outer for
 
+}
+
+
+double displayAvgScore(const short* test_scores, const short amount) {
+
+    double total{ 0.0 }; // Init local var to hold avg
+
+    for (int i = 0; i < amount; i++)
+    {
+        total += *(test_scores + i);
+    }
+
+    return (total / amount);
 }
