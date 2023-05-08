@@ -40,44 +40,54 @@ int main() {
         std::to_string(MIN_REQUIRED);
     std::string* student_names = nullptr;
     short* test_scores = nullptr, amount;
-    // Get user input - number of test scores/student names
-    std::cout << "How many students do you wish to process" <<
-        " test scores for? => ";
-    validateInput(amount, err_msg);
+    char again;
 
-    test_scores = new short[amount]; // Allocate size to that amount
-    student_names = new std::string[amount];
-    // Get name/score pairs from user
-    getInputData(amount, err_msg, test_scores, student_names);
-    sortScores(test_scores, student_names, amount);
-    // Check what we got in the arrays
-    std::cout << "Sorted names with associated scores in ascending order:\n";
-
-    for (int i = 0; i < amount; i++)
+    do
     {
-        std::cout << *(student_names + i) << std::setw(10);
-    }
+        // Get user input - number of test scores/student names
+        std::cout << "How many students do you wish to process" <<
+            " test scores for? => ";
+        validateInput(amount, err_msg);
 
-    //// Use null char to reset width
-    std::cout << std::setfill('\0') << std::endl;
+        test_scores = new short[amount]; // Allocate size to that amount
+        student_names = new std::string[amount];
+        // Get name/score pairs from user
+        getInputData(amount, err_msg, test_scores, student_names);
+        sortScores(test_scores, student_names, amount);
+        // Check what we got in the arrays
+        std::cout << "Sorted names with associated scores in ascending order:\n";
 
-    //// Intentional seperation of all array indexes on a line
+        for (int i = 0; i < amount; i++)
+        {
+            std::cout << *(student_names + i) << std::setw(10);
+        }
 
-    for (int i = 0; i < amount; i++)
-    {
-        std::cout << *(test_scores + i) << std::setfill(' ') << std::setw(10);
-    }
+        //// Use null char to reset width
+        std::cout << std::setfill('\0') << std::endl;
 
-    std::cout << std::fixed
-        << std::setprecision(2) << "\n\nRounded average of all supplied test scores: "
-        << displayAvgScore(test_scores, amount) << std::endl;
+        //// Intentional seperation of all array indexes on a line
 
-    // Destroy objects created with new to release memory
-    // Assign them back to nullptrs
-    delete[] test_scores;
-    delete[] student_names;
-    test_scores = nullptr;
-    student_names = nullptr;
+        for (int i = 0; i < amount; i++)
+        {
+            std::cout << *(test_scores + i) << std::setfill(' ') << std::setw(10);
+        }
+
+        std::cout << std::fixed
+            << std::setprecision(2) << "\n\nRounded average of all supplied test scores: "
+            << displayAvgScore(test_scores, amount) << std::endl;
+
+        // Destroy objects created with new to release memory
+        // Assign them back to nullptrs
+        delete[] test_scores;
+        delete[] student_names;
+        test_scores = nullptr;
+        student_names = nullptr;
+        std::cout << "New input? => "; std::cin >> again;
+        while (toupper(again) != 'Y' && toupper(again) != 'N') {
+            std::cout << "Valid responses are 'Y' or 'N'\n=> ";
+            std::cin >> again;
+        }
+    } while (toupper(again) == 'Y');
     return 0;
 }
 
