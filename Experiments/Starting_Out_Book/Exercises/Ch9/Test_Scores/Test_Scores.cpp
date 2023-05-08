@@ -162,12 +162,12 @@ void sortScores(short* test_scores, std::string* student_names,
 
 double displayAvgScore(const short* test_scores, const short amount) {
 
-    double total{ 0.0 }; // Init local var to hold avg
+    double total{ 0.0 }; // Init local var accumulate sum
 
     for (int i = 0; i < amount; i++)
     {
         total += *(test_scores + i);
     }
 
-    return (total / amount);
+    return (total / amount); // return val implicitly promoted to double
 }
